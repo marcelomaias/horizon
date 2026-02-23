@@ -1,7 +1,7 @@
 {
-  "name": "astra",
+  "name": "Horizon",
   "version": "1.0.0",
-  "description": "Website template for Payload",
+  "description": "Website for Horizon, a Payload CMS system.",
   "license": "MIT",
   "type": "module",
   "scripts": {
