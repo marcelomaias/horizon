@@ -3,27 +3,33 @@ import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 import { searchPlugin } from '@payloadcms/plugin-search'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { Plugin } from 'payload'
 import { revalidateRedirects } from '@/hooks/revalidateRedirects'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { FixedToolbarFeature, HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { searchFields } from '@/search/fieldOverrides'
 import { beforeSyncWithSearch } from '@/search/beforeSync'
-
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
 
 const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
-  return doc?.title ? `${doc.title} | Payload Website Template` : 'Payload Website Template'
+  return doc?.title ? `${doc.title} | Astra` : 'Astra'
 }
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
   const url = getServerSideURL()
-
   return doc?.slug ? `${url}/${doc.slug}` : url
 }
 
 export const plugins: Plugin[] = [
+  vercelBlobStorage({
+    enabled: !!process.env.BLOB_READ_WRITE_TOKEN,
+    collections: {
+      media: true,
+    },
+    token: process.env.BLOB_READ_WRITE_TOKEN || '',
+  }),
   redirectsPlugin({
     collections: ['pages', 'posts'],
     overrides: {
