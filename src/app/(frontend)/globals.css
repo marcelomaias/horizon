@@ -173,17 +173,17 @@
 [data-theme='dark'] {
   /* ── shadcn / Payload UI tokens (dark) ── */
   --background: oklch(16.5% 0.0027 67.6deg); /* #0f0e0d */
-  --foreground: oklch(95% 0.008 75deg);
+  --foreground: oklch(98% 0.002 75deg);
   --card: oklch(15% 0.005 75deg);
-  --card-foreground: oklch(95% 0.008 75deg);
+  --card-foreground: oklch(98% 0.002 75deg);
   --popover: oklch(16.5% 0.0027 67.6deg); /* #0f0e0d */
-  --popover-foreground: oklch(95% 0.008 75deg);
-  --primary: oklch(95% 0.008 75deg);
+  --popover-foreground: oklch(98% 0.002 75deg);
+  --primary: oklch(98% 0.002 75deg);
   --primary-foreground: oklch(10% 0.004 75deg);
   --secondary: oklch(20% 0.006 75deg);
-  --secondary-foreground: oklch(95% 0.008 75deg);
+  --secondary-foreground: oklch(98% 0.002 75deg);
   --muted: oklch(20% 0.006 75deg);
-  --muted-foreground: oklch(62% 0.01 75deg);
+  --muted-foreground: oklch(75% 0.01 75deg);
   --accent: oklch(20% 0.05 264deg);
   --accent-foreground: oklch(72% 0.14 264deg);
   --destructive: oklch(39.6% 0.141 25.723deg);
@@ -214,9 +214,9 @@
   --h-surface-2: oklch(22% 0.004 70deg);
   --h-border: oklch(20% 0.006 75deg); /* #282522 */
   --h-border-strong: oklch(27% 0.007 75deg); /* #3a3733 */
-  --h-text: oklch(95% 0.008 75deg); /* #f0ede8 */
-  --h-text-2: oklch(62% 0.01 75deg); /* #948f8a */
-  --h-text-muted: oklch(38% 0.008 75deg); /* #555250 */
+  --h-text: oklch(98% 0.002 75deg);
+  --h-text-2: oklch(75% 0.01 75deg); /* Darkened from 47% */
+  --h-text-muted: oklch(55% 0.01 75deg); /* Darkened from 66% */
   --h-accent: oklch(72% 0.14 264deg); /* #7ba7f7 */
   --h-accent-bg: oklch(20% 0.05 264deg); /* #1a2540 */
 
