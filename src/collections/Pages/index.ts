@@ -7,7 +7,11 @@ import { CallToAction } from '../../blocks/CallToAction/config'
 import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
-import { hero } from '@/heros/config'
+import { HeroHome } from '@/blocks/HeroHome/config'
+import { LogoCloud } from '@/blocks/LogoCloud/config'
+import { CmsSection } from '@/blocks/CmsSection/config'
+import { FeaturesGrid } from '@/blocks/FeaturesGrid/config'
+import { Performance } from '@/blocks/Performance/config'
 import { slugField } from 'payload'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -20,6 +24,7 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
+import { CtaBanner } from '@/blocks/CtaBanner/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -64,15 +69,23 @@ export const Pages: CollectionConfig<'pages'> = {
       type: 'tabs',
       tabs: [
         {
-          fields: [hero],
-          label: 'Hero',
-        },
-        {
           fields: [
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
+              blocks: [
+                HeroHome,
+                LogoCloud,
+                CmsSection,
+                FeaturesGrid,
+                Performance,
+                CtaBanner,
+                CallToAction,
+                Content,
+                MediaBlock,
+                Archive,
+                FormBlock,
+              ],
               required: true,
               admin: {
                 initCollapsed: true,

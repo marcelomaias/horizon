@@ -17,12 +17,20 @@
   h4,
   h5,
   h6 {
+    font-family: var(--font-serif), serif;
     font-weight: unset;
     font-size: unset;
   }
 }
 
 @plugin "@tailwindcss/typography";
+
+/* Override Tailwind Typography default for H1 inside .prose
+   Use a selector matching the plugin's specificity and !important to
+   ensure rich-text H1s render bold (used by rich text components). */
+.prose :where(h1):not(:where([class*='not-prose'])) {
+  font-weight: 700 !important;
+}
 
 @source inline("lg:col-span-4");
 @source inline("lg:col-span-6");
@@ -37,15 +45,22 @@
 @source inline("border-warning");
 @source inline("bg-warning/30");
 
+/* ─── THEME ───────────────────────────────────────────────────────────────── */
+
 @theme {
   --breakpoint-sm: 40rem;
   --breakpoint-md: 48rem;
   --breakpoint-lg: 64rem;
   --breakpoint-xl: 80rem;
   --breakpoint-2xl: 86rem;
+
+  /* Fonts — variables injected by next/font/google in layout.tsx */
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
   --font-mono: var(--font-geist-mono);
-  --font-sans: var(--font-geist-sans);
 }
+
+/* ─── CONTAINER ────────────────────────────────────────────────────────────── */
 
 @layer utilities {
   .container {
@@ -86,84 +101,142 @@
   }
 }
 
+/* ─── DESIGN TOKENS ─────────────────────────────────────────────────────────
+   Two layers:
+   1. shadcn/Payload UI tokens — keep these intact so admin panel works correctly
+   2. Horizon brand tokens    — prefixed with --h- to avoid collisions
+   ─────────────────────────────────────────────────────────────────────────── */
+
 :root {
-  --background: oklch(100% 0 0deg);
-  --foreground: oklch(14.5% 0 0deg);
-  --card: oklch(96.5% 0.005 265deg);
-  --card-foreground: oklch(14.5% 0 0deg);
+  /* ── shadcn / Payload UI tokens (light) ── */
+  --background: oklch(97.8% 0.004 75deg); /* warm off-white, matches --h-bg */
+  --foreground: oklch(10% 0.004 75deg);
+  --card: oklch(95% 0.008 75deg);
+  --card-foreground: oklch(10% 0.004 75deg);
   --popover: oklch(100% 0 0deg);
-  --popover-foreground: oklch(14.5% 0 0deg);
-  --primary: oklch(20.5% 0 0deg);
-  --primary-foreground: oklch(98.5% 0 0deg);
-  --secondary: oklch(97% 0 0deg);
-  --secondary-foreground: oklch(20.5% 0 0deg);
-  --muted: oklch(97% 0 0deg);
-  --muted-foreground: oklch(55.6% 0 0deg);
-  --accent: oklch(97% 0 0deg);
-  --accent-foreground: oklch(20.5% 0 0deg);
+  --popover-foreground: oklch(10% 0.004 75deg);
+  --primary: oklch(10% 0.004 75deg);
+  --primary-foreground: oklch(97.8% 0.004 75deg);
+  --secondary: oklch(95% 0.008 75deg);
+  --secondary-foreground: oklch(10% 0.004 75deg);
+  --muted: oklch(95% 0.008 75deg);
+  --muted-foreground: oklch(47% 0.012 75deg);
+  --accent: oklch(95% 0.03 264deg);
+  --accent-foreground: oklch(48% 0.2 264deg);
   --destructive: oklch(57.7% 0.245 27.325deg);
   --destructive-foreground: oklch(57.7% 0.245 27.325deg);
-  --border: oklch(92.2% 0 0deg);
-  --input: oklch(92.2% 0 0deg);
-  --ring: oklch(70.8% 0 0deg);
+  --border: oklch(91% 0.008 75deg);
+  --input: oklch(91% 0.008 75deg);
+  --ring: oklch(48% 0.2 264deg);
   --chart-1: oklch(64.6% 0.222 41.116deg);
   --chart-2: oklch(60% 0.118 184.704deg);
   --chart-3: oklch(39.8% 0.07 227.392deg);
   --chart-4: oklch(82.8% 0.189 84.429deg);
   --chart-5: oklch(76.9% 0.188 70.08deg);
-  --radius: 0.625rem;
-  --sidebar: oklch(98.5% 0 0deg);
-  --sidebar-foreground: oklch(14.5% 0 0deg);
-  --sidebar-primary: oklch(20.5% 0 0deg);
-  --sidebar-primary-foreground: oklch(98.5% 0 0deg);
-  --sidebar-accent: oklch(97% 0 0deg);
-  --sidebar-accent-foreground: oklch(20.5% 0 0deg);
-  --sidebar-border: oklch(92.2% 0 0deg);
-  --sidebar-ring: oklch(70.8% 0 0deg);
+  --radius: 0.875rem; /* 14px — matches Horizon --radius */
+  --sidebar: oklch(97.8% 0.004 75deg);
+  --sidebar-foreground: oklch(10% 0.004 75deg);
+  --sidebar-primary: oklch(10% 0.004 75deg);
+  --sidebar-primary-foreground: oklch(97.8% 0.004 75deg);
+  --sidebar-accent: oklch(95% 0.008 75deg);
+  --sidebar-accent-foreground: oklch(10% 0.004 75deg);
+  --sidebar-border: oklch(91% 0.008 75deg);
+  --sidebar-ring: oklch(66% 0.008 75deg);
   --success: oklch(78% 0.08 200deg);
   --warning: oklch(89% 0.1 75deg);
   --error: oklch(75% 0.15 25deg);
+
+  /* ── Horizon brand tokens (light) ── */
+  --h-bg: oklch(97.8% 0.004 75deg); /* #f7f6f3 */
+  --h-surface: oklch(100% 0 0deg); /* #ffffff */
+  --h-surface-2: oklch(95% 0.008 75deg); /* #f0ede8 */
+  --h-border: oklch(91% 0.008 75deg); /* #e5e2dc */
+  --h-border-strong: oklch(82% 0.008 75deg); /* #ccc9c3 */
+  --h-text: oklch(10% 0.004 75deg); /* #0f0e0d */
+  --h-text-2: oklch(47% 0.012 75deg); /* #6b6860 */
+  --h-text-muted: oklch(66% 0.008 75deg); /* #a09d99 */
+  --h-accent: oklch(48% 0.2 264deg); /* #1a56db */
+  --h-accent-bg: oklch(95% 0.03 264deg); /* #e8f0fe */
+
+  /* Shadows */
+  --h-shadow-sm: 0 1px 3px oklch(0% 0 0deg / 7%);
+  --h-shadow-md: 0 4px 20px oklch(0% 0 0deg / 9%), 0 1px 4px oklch(0% 0 0deg / 5%);
+  --h-shadow-lg: 0 24px 80px oklch(0% 0 0deg / 13%), 0 8px 24px oklch(0% 0 0deg / 7%);
+  --h-shadow-xl: 0 40px 120px oklch(0% 0 0deg / 18%), 0 12px 40px oklch(0% 0 0deg / 10%);
+
+  /* Radius scale */
+  --h-radius: 0.875rem; /* 14px */
+  --h-radius-sm: 0.5rem; /* 8px  */
+  --h-radius-full: 9999px;
 }
 
 [data-theme='dark'] {
-  --background: oklch(14.5% 0 0deg);
-  --foreground: oklch(98.5% 0 0deg);
-  --card: oklch(17% 0 0deg);
-  --card-foreground: oklch(98.5% 0 0deg);
-  --popover: oklch(14.5% 0 0deg);
-  --popover-foreground: oklch(98.5% 0 0deg);
-  --primary: oklch(98.5% 0 0deg);
-  --primary-foreground: oklch(20.5% 0 0deg);
-  --secondary: oklch(26.9% 0 0deg);
-  --secondary-foreground: oklch(98.5% 0 0deg);
-  --muted: oklch(26.9% 0 0deg);
-  --muted-foreground: oklch(70.8% 0 0deg);
-  --accent: oklch(26.9% 0 0deg);
-  --accent-foreground: oklch(98.5% 0 0deg);
+  /* ── shadcn / Payload UI tokens (dark) ── */
+  --background: oklch(16.5% 0.0027 67.6deg); /* #0f0e0d */
+  --foreground: oklch(95% 0.008 75deg);
+  --card: oklch(15% 0.005 75deg);
+  --card-foreground: oklch(95% 0.008 75deg);
+  --popover: oklch(16.5% 0.0027 67.6deg); /* #0f0e0d */
+  --popover-foreground: oklch(95% 0.008 75deg);
+  --primary: oklch(95% 0.008 75deg);
+  --primary-foreground: oklch(10% 0.004 75deg);
+  --secondary: oklch(20% 0.006 75deg);
+  --secondary-foreground: oklch(95% 0.008 75deg);
+  --muted: oklch(20% 0.006 75deg);
+  --muted-foreground: oklch(62% 0.01 75deg);
+  --accent: oklch(20% 0.05 264deg);
+  --accent-foreground: oklch(72% 0.14 264deg);
   --destructive: oklch(39.6% 0.141 25.723deg);
   --destructive-foreground: oklch(63.7% 0.237 25.331deg);
-  --border: oklch(26.9% 0 0deg);
-  --input: oklch(26.9% 0 0deg);
-  --ring: oklch(43.9% 0 0deg);
+  --border: oklch(20% 0.006 75deg);
+  --input: oklch(20% 0.006 75deg);
+  --ring: oklch(72% 0.14 264deg);
   --chart-1: oklch(48.8% 0.243 264.376deg);
   --chart-2: oklch(69.6% 0.17 162.48deg);
   --chart-3: oklch(76.9% 0.188 70.08deg);
   --chart-4: oklch(62.7% 0.265 303.9deg);
   --chart-5: oklch(64.5% 0.246 16.439deg);
-  --sidebar: oklch(20.5% 0 0deg);
-  --sidebar-foreground: oklch(98.5% 0 0deg);
-  --sidebar-primary: oklch(48.8% 0.243 264.376deg);
-  --sidebar-primary-foreground: oklch(98.5% 0 0deg);
-  --sidebar-accent: oklch(26.9% 0 0deg);
-  --sidebar-accent-foreground: oklch(98.5% 0 0deg);
-  --sidebar-border: oklch(26.9% 0 0deg);
-  --sidebar-ring: oklch(43.9% 0 0deg);
+  --sidebar: oklch(12% 0.005 75deg);
+  --sidebar-foreground: oklch(95% 0.008 75deg);
+  --sidebar-primary: oklch(72% 0.14 264deg);
+  --sidebar-primary-foreground: oklch(95% 0.008 75deg);
+  --sidebar-accent: oklch(20% 0.006 75deg);
+  --sidebar-accent-foreground: oklch(95% 0.008 75deg);
+  --sidebar-border: oklch(20% 0.006 75deg);
+  --sidebar-ring: oklch(38% 0.008 75deg);
   --success: oklch(28% 0.1 200deg);
   --warning: oklch(35% 0.08 70deg);
   --error: oklch(45% 0.1 25deg);
+
+  /* ── Horizon brand tokens (dark) ── */
+  --h-bg: oklch(16.5% 0.0027 67.6deg); /* #0f0e0d */
+  --h-surface: oklch(19% 0.003 70deg);
+  --h-surface-2: oklch(22% 0.004 70deg);
+  --h-border: oklch(20% 0.006 75deg); /* #282522 */
+  --h-border-strong: oklch(27% 0.007 75deg); /* #3a3733 */
+  --h-text: oklch(95% 0.008 75deg); /* #f0ede8 */
+  --h-text-2: oklch(62% 0.01 75deg); /* #948f8a */
+  --h-text-muted: oklch(38% 0.008 75deg); /* #555250 */
+  --h-accent: oklch(72% 0.14 264deg); /* #7ba7f7 */
+  --h-accent-bg: oklch(20% 0.05 264deg); /* #1a2540 */
+
+  /* Shadows (heavier in dark mode) */
+  --h-shadow-sm: 0 1px 3px oklch(0% 0 0deg / 40%);
+  --h-shadow-md: 0 4px 20px oklch(0% 0 0deg / 50%);
+  --h-shadow-lg: 0 24px 80px oklch(0% 0 0deg / 60%);
+  --h-shadow-xl: 0 40px 120px oklch(0% 0 0deg / 70%);
+
+  .logo-cloud__logo img {
+    filter: invert(1) brightness(2);
+  }
 }
 
+/* ─── TAILWIND TOKEN MAP ─────────────────────────────────────────────────────
+   Maps CSS vars → Tailwind color utilities (bg-*, text-*, border-*, etc.)
+   ─────────────────────────────────────────────────────────────────────────── */
+
 @theme inline {
+  /* shadcn / Payload UI */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -203,14 +276,36 @@
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-error: var(--error);
+
+  /* Horizon brand → Tailwind utilities: bg-h-bg, text-h-text, border-h-border, etc. */
+  --color-h-bg: var(--h-bg);
+  --color-h-surface: var(--h-surface);
+  --color-h-surface-2: var(--h-surface-2);
+  --color-h-border: var(--h-border);
+  --color-h-border-strong: var(--h-border-strong);
+  --color-h-text: var(--h-text);
+  --color-h-text-2: var(--h-text-2);
+  --color-h-text-muted: var(--h-text-muted);
+  --color-h-accent: var(--h-accent);
+  --color-h-accent-bg: var(--h-accent-bg);
 }
+
+/* ─── BASE STYLES ────────────────────────────────────────────────────────────  */
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground min-h-screen flex flex-col;
+    font-family: var(--font-sans), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -221,4 +316,295 @@ html {
 html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
+}
+
+/* ─── HEADER ─────────────────────────────────────────────────────────────── */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 2.5rem;
+  border-bottom: 1px solid var(--h-border);
+  background: rgb(247 246 243 / 82%);
+  backdrop-filter: blur(14px);
+  transition:
+    background 0.3s,
+    border-color 0.3s;
+}
+
+[data-theme='dark'] .site-header {
+  background: rgb(13 12 11 / 85%);
+}
+
+.site-header__logo {
+  font-family: var(--font-serif), serif;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  color: var(--h-text);
+  text-decoration: none;
+}
+
+.site-header__nav-link {
+  font-size: 0.875rem;
+  color: var(--h-text-2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-header__nav-link:hover {
+  color: var(--h-text);
+}
+
+/* ─── GLOBAL BUTTONS ─────────────────────────────────────────────────────── */
+
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--h-radius-full);
+  transition:
+    opacity 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.btn-primary {
+  background: var(--h-text);
+  color: var(--h-bg);
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  opacity: 0.82;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--h-text-2);
+  border: 1px solid oklch(68% 0.008 75deg);
+}
+
+.btn-ghost:hover {
+  color: var(--h-text);
+  background: var(--h-surface-2);
+  border-color: var(--h-border-strong);
+}
+
+/* Large variant */
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* ─── THEME SELECTOR ─────────────────────────────────────────────────────── */
+
+.theme-selector {
+  position: relative;
+}
+
+.theme-selector__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.2s;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--h-radius-full);
+  border: none;
+  background: transparent;
+  color: oklch(58% 0.008 75deg);
+  padding: 0;
+}
+
+.theme-selector__trigger svg {
+  width: 28px;
+  height: 28px;
+}
+
+[data-theme='light'] .theme-selector__trigger:hover,
+html:not([data-theme='dark']) .theme-selector__trigger:hover {
+  background: transparent;
+  color: oklch(10% 0.004 75deg) !important;
+}
+
+[data-theme='dark'] .theme-selector__trigger:hover {
+  background: transparent;
+  color: oklch(95% 0.008 75deg) !important;
+}
+
+.theme-selector__dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 130px;
+  background: var(--h-surface);
+  border: 1px solid var(--h-border);
+  border-radius: var(--h-radius-sm);
+  box-shadow: var(--h-shadow-md);
+  overflow: hidden;
+  z-index: 300;
+}
+
+.theme-selector__option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8rem;
+  font-family: var(--font-sans), sans-serif;
+  color: var(--h-text-2);
+  background: transparent;
+  border: none;
+  text-align: left;
+}
+
+.theme-selector__option:hover {
+  background: var(--h-surface-2);
+  color: var(--h-text);
+}
+
+.theme-selector__option.active {
+  color: var(--h-accent);
+  background: var(--h-accent-bg);
+}
+
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+
+.hero {
+  padding-top: 40px;
+  padding-bottom: 0;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(180deg, var(--h-bg) 0%, var(--h-surface) 100%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 500px;
+  background: radial-gradient(ellipse, oklch(48% 0.2 264deg / 5.5%) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+[data-theme='dark'] .hero::before {
+  background: radial-gradient(ellipse, oklch(72% 0.14 264deg / 7%) 0%, transparent 65%);
+}
+
+.hero__heading {
+  animation: fadeUp 0.55s 0.08s ease both;
+}
+
+.hero__heading h1 {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2rem, 5.5vw, 4.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--h-text);
+  max-width: 760px;
+  margin: 0 auto 1.375rem;
+}
+
+.hero__heading h1 em {
+  font-style: italic;
+  color: var(--h-text-2);
+}
+
+.hero__sub {
+  font-size: 1.1rem;
+  color: var(--h-text-2);
+  max-width: 570px;
+  margin: 0 auto 2.25rem;
+  font-weight: 300;
+  line-height: 1.7;
+  animation: fadeUp 0.55s 0.16s ease both;
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes screenshotRise {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ─── CMS SECTION ────────────────────────────────────────────────────────── */
+
+.cms-section__heading h2,
+.features-grid__heading h2,
+.performance__heading h2 {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--h-text);
+  margin-bottom: 1.125rem;
+}
+
+.cms-section__heading h2 em,
+.features-grid__heading h2 em,
+.performance__heading h2 em {
+  font-style: italic;
+  color: var(--h-text-2);
+}
+
+.cms-section__body p,
+.performance__body p {
+  font-size: 0.975rem;
+  color: var(--h-text-2);
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 0.875rem;
+  text-wrap: balance;
+}
+
+.cta-banner__heading h2 {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: #f7f6f3;
+  max-width: 600px;
+  margin: 0 auto 1.25rem;
 }

@@ -3,30 +3,131 @@ import Link from 'next/link'
 import React from 'react'
 
 import type { Footer } from '@/payload-types'
-
-import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { CMSLink } from '@/components/Link'
-import { Logo } from '@/components/Logo/Logo'
 
 export async function Footer() {
   const footerData: Footer = await getCachedGlobal('footer', 1)()
-
   const navItems = footerData?.navItems || []
 
   return (
-    <footer className="mt-auto border-t border-border bg-black dark:bg-card text-white">
-      <div className="container py-8 gap-8 flex flex-col md:flex-row md:justify-between">
-        <Link className="flex items-center" href="/">
-          <Logo />
-        </Link>
+    <footer className="bg-h-surface text-h-text border-t border-h-border pt-15 pb-9 mt-auto">
+      <div className="container">
+        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr] gap-9 md:gap-12 mb-12">
+          {/* Brand col */}
+          <div>
+            <Link
+              className="font-serif text-[1.15rem] text-h-text no-underline block mb-3"
+              href="/"
+            >
+              Horizon
+            </Link>
 
-        <div className="flex flex-col-reverse items-start md:flex-row gap-4 md:items-center">
-          <ThemeSelector />
-          <nav className="flex flex-col md:flex-row gap-4">
-            {navItems.map(({ link }, i) => {
-              return <CMSLink className="text-white" key={i} {...link} />
-            })}
-          </nav>
+            <p className="text-sm text-h-text-2 font-light leading-[1.65] max-w-65">
+              A modern content platform for marketing teams who want speed, flexibility, and full
+              control over their website.
+            </p>
+          </div>
+
+          {/* Product col */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-h-text-muted mb-3.5">
+              Product
+            </p>
+
+            <ul className="list-none flex flex-col gap-2">
+              <li>
+                <Link
+                  className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
+                  href="/features"
+                >
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
+                  href="/pricing"
+                >
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
+                  href="/demo"
+                >
+                  Demo
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
+                  href="/posts"
+                >
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company col */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-h-text-muted mb-3.5">
+              Company
+            </p>
+
+            <ul className="list-none flex flex-col gap-2">
+              <li>
+                <Link
+                  className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
+                  href="/about"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
+                  href="/contact"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Developer col — driven by Payload Footer global */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-h-text-muted mb-3.5">
+              Developer
+            </p>
+
+            <ul className="list-none flex flex-col gap-2">
+              {navItems.map(({ link }, i) => (
+                <li key={i}>
+                  <CMSLink
+                    {...link}
+                    className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
+                  />
+                </li>
+              ))}
+
+              <li>
+                <Link
+                  className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
+                  href="/admin"
+                >
+                  CMS Admin
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="flex items-center justify-between pt-7 border-t border-h-border/20 dark:border-h-border text-[0.78rem] text-h-text-2 dark:text-h-text-muted">
+          <p>© {new Date().getFullYear()} Horizon · Built with Next.js + Payload CMS</p>
+          <p>Built by Marcelo</p>
         </div>
       </div>
     </footer>
