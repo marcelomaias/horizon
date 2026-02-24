@@ -14,7 +14,7 @@ export const PerformanceBlock: React.FC<PerformanceBlockProps & { id?: string }>
   return (
     <section className="py-24 border-b border-h-border">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[80px] items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           {/* Left — text content */}
           <div>
             {eyebrow && (
@@ -42,7 +42,7 @@ export const PerformanceBlock: React.FC<PerformanceBlockProps & { id?: string }>
           {/* Right — metrics (hardcoded) */}
           <div className="grid grid-cols-2 gap-4">
             {/* Metric cards */}
-            <div className="bg-h-surface border border-h-border rounded-[var(--h-radius)] px-6 py-7 transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[var(--h-shadow-md)]">
+            <div className="bg-h-surface border border-h-border rounded-(--h-radius) px-6 py-7 transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-(--h-shadow-md)">
               <div className="font-serif text-[2.4rem] tracking-[-0.04em] text-h-text leading-none mb-1.5">
                 100<span className="text-[1.2rem] text-h-text-muted">/100</span>
               </div>
@@ -52,7 +52,7 @@ export const PerformanceBlock: React.FC<PerformanceBlockProps & { id?: string }>
               </span>
             </div>
 
-            <div className="bg-h-surface border border-h-border rounded-[var(--h-radius)] px-6 py-7 transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[var(--h-shadow-md)]">
+            <div className="bg-h-surface border border-h-border rounded-(--h-radius) px-6 py-7 transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-(--h-shadow-md)">
               <div className="font-serif text-[2.4rem] tracking-[-0.04em] text-h-text leading-none mb-1.5">
                 &lt;1<span className="text-[1.2rem] text-h-text-muted">s</span>
               </div>
@@ -63,7 +63,7 @@ export const PerformanceBlock: React.FC<PerformanceBlockProps & { id?: string }>
             </div>
 
             {/* Lighthouse row */}
-            <div className="col-span-2 bg-h-surface border border-h-border rounded-[var(--h-radius)] p-6">
+            <div className="col-span-2 bg-h-surface border border-h-border rounded-(--h-radius) p-6">
               <div className="text-[0.72rem] uppercase tracking-[0.07em] text-h-text-muted font-semibold mb-4">
                 Lighthouse Audit — horizonplatform.com
               </div>
@@ -75,7 +75,7 @@ export const PerformanceBlock: React.FC<PerformanceBlockProps & { id?: string }>
                   { score: 100, label: 'SEO' },
                 ].map((item) => (
                   <div key={item.label} className="flex-1 text-center">
-                    <div className="w-[52px] h-[52px] rounded-full mx-auto mb-2 grid place-items-center font-serif text-[1rem] border-[3px] border-[#22c55e] text-[#166534] bg-[#f0fdf4] dark:bg-[#14532d] dark:text-[#86efac]">
+                    <div className="w-13 h-13 rounded-full mx-auto mb-2 grid place-items-center font-serif text-[1rem] border-[3px] border-[#22c55e] text-[#166534] bg-[#f0fdf4] dark:bg-[#14532d] dark:text-[#86efac]">
                       {item.score}
                     </div>
                     <div className="text-[0.68rem] text-h-text-muted leading-[1.3]">

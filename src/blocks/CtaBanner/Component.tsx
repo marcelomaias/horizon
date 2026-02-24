@@ -22,7 +22,7 @@ export const CtaBannerBlock: React.FC<CtaBannerBlockProps & { id?: string }> = (
         )}
 
         {subtext && (
-          <p className="text-[1rem] text-[rgba(247,246,243,0.55)] max-w-[400px] mx-auto mb-10 font-light leading-[1.7] text-center">
+          <p className="text-[1rem] text-[rgba(247,246,243,0.55)] max-w-100 mx-auto mb-10 font-light leading-[1.7] text-center">
             {subtext}
           </p>
         )}
@@ -30,7 +30,7 @@ export const CtaBannerBlock: React.FC<CtaBannerBlockProps & { id?: string }> = (
         <div className="flex gap-2.5 justify-center flex-wrap">
           {primaryButtonLabel && (
             <Link
-              className="bg-[#f7f6f3] text-[#0f0e0d] px-[26px] py-[13px] rounded-full text-[0.95rem] font-medium no-underline transition-[opacity,transform] duration-[180ms] hover:opacity-[0.88] hover:-translate-y-px"
+              className="bg-[#f7f6f3] text-[#0f0e0d] px-6.5 py-3.25 rounded-full text-[0.95rem] font-medium no-underline transition-[opacity,transform] duration-180 hover:opacity-[0.88] hover:-translate-y-px"
               href={primaryButtonHref || '/demo'}
             >
               {primaryButtonLabel}
@@ -38,7 +38,7 @@ export const CtaBannerBlock: React.FC<CtaBannerBlockProps & { id?: string }> = (
           )}
           {secondaryButtonLabel && (
             <Link
-              className="bg-[rgba(255,255,255,0.08)] text-[rgba(247,246,243,0.75)] border border-[rgba(255,255,255,0.15)] px-[26px] py-[13px] rounded-full text-[0.95rem] font-normal no-underline transition-[background,color] duration-[180ms] hover:bg-[rgba(255,255,255,0.14)] hover:text-[#f7f6f3]"
+              className="bg-[rgba(255,255,255,0.08)] text-[rgba(247,246,243,0.75)] border border-[rgba(255,255,255,0.15)] px-6.5 py-3.25 rounded-full text-[0.95rem] font-normal no-underline transition-[background,color] duration-180 hover:bg-[rgba(255,255,255,0.14)] hover:text-[#f7f6f3]"
               href={secondaryButtonHref || '/demo'}
             >
               {secondaryButtonLabel}

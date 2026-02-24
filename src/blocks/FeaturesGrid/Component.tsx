@@ -17,7 +17,7 @@ export const FeaturesGridBlock: React.FC<FeaturesGridBlockProps & { id?: string 
         {/* Section header */}
         <div className="mb-14">
           {eyebrow && (
-            <p className="text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-h-accent mb-3">
+            <p className="text-[0.75rem] font-semibold uppercase tracking-widest text-h-accent mb-3">
               {eyebrow}
             </p>
           )}
@@ -27,7 +27,7 @@ export const FeaturesGridBlock: React.FC<FeaturesGridBlockProps & { id?: string 
             </div>
           )}
           {subtext && (
-            <p className="text-[1rem] text-h-text-2 max-w-[440px] font-light leading-[1.7]">
+            <p className="text-[1rem] text-h-text-2 max-w-110 font-light leading-[1.7]">
               {subtext}
             </p>
           )}
