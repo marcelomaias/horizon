@@ -12,12 +12,12 @@ export async function Footer() {
   return (
     <footer className="bg-h-surface text-h-text border-t border-h-border pt-15 pb-9 mt-auto">
       <div className="container">
-        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr] gap-9 md:gap-12 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-[4fr_1fr_1fr] gap-9 md:gap-12 mb-12">
           {/* Brand col */}
           <div>
             <Link
-              className="font-serif text-[1.15rem] text-h-text no-underline block mb-3"
-              href="/"
+              className="font-serif text-[1.15rem] text-h-text no-underline mb-3 inline-block"
+              href="#home"
             >
               Horizon
             </Link>
@@ -38,7 +38,7 @@ export async function Footer() {
               <li>
                 <Link
                   className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
-                  href="/features"
+                  href="#featuresGrid"
                 >
                   Features
                 </Link>
@@ -46,32 +46,24 @@ export async function Footer() {
               <li>
                 <Link
                   className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
-                  href="/pricing"
+                  href="#performance"
                 >
-                  Pricing
+                  Performance
                 </Link>
               </li>
               <li>
                 <Link
                   className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
-                  href="/demo"
+                  href="/admin"
                 >
-                  Demo
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
-                  href="/posts"
-                >
-                  Blog
+                  Try it!
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Company col */}
-          <div>
+          {/* <div>
             <p className="text-xs font-semibold uppercase tracking-[0.08em] text-h-text-muted mb-3.5">
               Company
             </p>
@@ -94,7 +86,7 @@ export async function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Developer col — driven by Payload Footer global */}
           <div>
@@ -111,23 +103,13 @@ export async function Footer() {
                   />
                 </li>
               ))}
-
-              <li>
-                <Link
-                  className="text-sm text-h-text-2 no-underline transition-colors duration-150 hover:text-h-text dark:text-h-text-2 dark:hover:text-h-text"
-                  href="/admin"
-                >
-                  CMS Admin
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="flex items-center justify-between pt-7 border-t border-h-border/20 dark:border-h-border text-[0.78rem] text-h-text-2 dark:text-h-text-muted">
+        <div className="flex items-center justify-center pt-7 border-t border-h-border/20 dark:border-h-border text-[0.78rem] text-h-text-2 dark:text-h-text-muted">
           <p>© {new Date().getFullYear()} Horizon · Built with Next.js + Payload CMS</p>
-          <p>Built by Marcelo</p>
         </div>
       </div>
     </footer>

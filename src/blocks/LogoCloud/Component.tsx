@@ -10,7 +10,7 @@ export const LogoCloudBlock: React.FC<LogoCloudBlockProps & { id?: string }> = (
   if (!logos || logos.length === 0) return null
 
   return (
-    <div className="py-12 border-b border-h-border bg-h-surface">
+    <div className="py-12 pt-18 border-b border-h-border bg-h-surface">
       <div className="container">
         {label && (
           <p className="text-center text-[0.72rem] font-semibold uppercase tracking-widest text-h-text-muted mb-7">

@@ -9,7 +9,6 @@ import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { HeroHome } from '@/blocks/HeroHome/config'
 import { LogoCloud } from '@/blocks/LogoCloud/config'
-import { CmsSection } from '@/blocks/CmsSection/config'
 import { FeaturesGrid } from '@/blocks/FeaturesGrid/config'
 import { Performance } from '@/blocks/Performance/config'
 import { PageHeading } from '@/blocks/PageHeading/config'
@@ -80,7 +79,6 @@ export const Pages: CollectionConfig<'pages'> = {
                 TextImage,
                 HeroHome,
                 LogoCloud,
-                CmsSection,
                 FeaturesGrid,
                 Performance,
                 CtaBanner,

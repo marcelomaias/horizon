@@ -160,7 +160,6 @@ export interface Page {
     | TextImageBlock
     | HeroHomeBlock
     | LogoCloudBlock
-    | CmsSectionBlock
     | FeaturesGridBlock
     | PerformanceBlock
     | CtaBannerBlock
@@ -439,57 +438,6 @@ export interface LogoCloudBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'logoCloud';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CmsSectionBlock".
- */
-export interface CmsSectionBlock {
-  eyebrow?: string | null;
-  /**
-   * Use line breaks and italic for styled headings
-   */
-  heading?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  body?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  checklistItems?:
-    | {
-        text: string;
-        id?: string | null;
-      }[]
-    | null;
-  buttonLabel?: string | null;
-  buttonHref?: string | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'cmsSection';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1323,7 +1271,6 @@ export interface PagesSelect<T extends boolean = true> {
         textImage?: T | TextImageBlockSelect<T>;
         heroHome?: T | HeroHomeBlockSelect<T>;
         logoCloud?: T | LogoCloudBlockSelect<T>;
-        cmsSection?: T | CmsSectionBlockSelect<T>;
         featuresGrid?: T | FeaturesGridBlockSelect<T>;
         performance?: T | PerformanceBlockSelect<T>;
         ctaBanner?: T | CtaBannerBlockSelect<T>;
@@ -1399,25 +1346,6 @@ export interface LogoCloudBlockSelect<T extends boolean = true> {
         alt?: T;
         id?: T;
       };
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CmsSectionBlock_select".
- */
-export interface CmsSectionBlockSelect<T extends boolean = true> {
-  eyebrow?: T;
-  heading?: T;
-  body?: T;
-  checklistItems?:
-    | T
-    | {
-        text?: T;
-        id?: T;
-      };
-  buttonLabel?: T;
-  buttonHref?: T;
   id?: T;
   blockName?: T;
 }
