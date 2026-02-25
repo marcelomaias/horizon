@@ -12,6 +12,9 @@ import { LogoCloud } from '@/blocks/LogoCloud/config'
 import { CmsSection } from '@/blocks/CmsSection/config'
 import { FeaturesGrid } from '@/blocks/FeaturesGrid/config'
 import { Performance } from '@/blocks/Performance/config'
+import { PageHeading } from '@/blocks/PageHeading/config'
+import { CtaBanner } from '@/blocks/CtaBanner/config'
+import { TextImage } from '@/blocks/TextImage/config'
 import { slugField } from 'payload'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
@@ -24,7 +27,6 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
-import { CtaBanner } from '@/blocks/CtaBanner/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -74,6 +76,8 @@ export const Pages: CollectionConfig<'pages'> = {
               name: 'layout',
               type: 'blocks',
               blocks: [
+                PageHeading,
+                TextImage,
                 HeroHome,
                 LogoCloud,
                 CmsSection,

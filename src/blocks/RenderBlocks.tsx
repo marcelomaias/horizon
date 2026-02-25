@@ -13,6 +13,8 @@ import { CmsSectionBlock } from './CmsSection/Component'
 import { FeaturesGridBlock } from './FeaturesGrid/Component'
 import { PerformanceBlock } from './Performance/component'
 import { CtaBannerBlock } from './CtaBanner/Component'
+import { PageHeadingBlock } from './PageHeading/Component'
+import { TextImageBlock } from './TextImage/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -26,6 +28,8 @@ const blockComponents = {
   featuresGrid: FeaturesGridBlock,
   performance: PerformanceBlock,
   ctaBanner: CtaBannerBlock,
+  pageHeading: PageHeadingBlock,
+  textImage: TextImageBlock,
 }
 
 export const RenderBlocks: React.FC<{

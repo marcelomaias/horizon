@@ -353,7 +353,7 @@ html[data-theme='light'] {
 
 .site-header__nav-link {
   font-size: 0.875rem;
-  color: var(--h-text-2);
+
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -396,7 +396,7 @@ html[data-theme='light'] {
 
 .btn-ghost {
   background: transparent;
-  color: var(--h-text-2);
+
   border: 1px solid oklch(68% 0.008 75deg);
 }
 
@@ -474,7 +474,7 @@ html:not([data-theme='dark']) .theme-selector__trigger:hover {
   padding: 0.5rem 0.875rem;
   font-size: 0.8rem;
   font-family: var(--font-sans), sans-serif;
-  color: var(--h-text-2);
+
   background: transparent;
   border: none;
   text-align: left;
@@ -537,7 +537,7 @@ html:not([data-theme='dark']) .theme-selector__trigger:hover {
 
 .hero__sub {
   font-size: 1.1rem;
-  color: var(--h-text-2);
+
   max-width: 570px;
   margin: 0 auto 2.25rem;
   font-weight: 300;
@@ -586,13 +586,12 @@ html:not([data-theme='dark']) .theme-selector__trigger:hover {
 .features-grid__heading h2 em,
 .performance__heading h2 em {
   font-style: italic;
-  color: var(--h-text-2);
 }
 
 .cms-section__body p,
 .performance__body p {
   font-size: 0.975rem;
-  color: var(--h-text-2);
+
   line-height: 1.75;
   font-weight: 300;
   margin-bottom: 0.875rem;
@@ -604,7 +603,14 @@ html:not([data-theme='dark']) .theme-selector__trigger:hover {
   font-size: clamp(2rem, 4.5vw, 3.8rem);
   letter-spacing: -0.035em;
   line-height: 1.1;
-  color: #f7f6f3;
+  color: #f7f6f3; /* NEEDED TO FORCE WHITE TEXT ON THEME SWITCH */
   max-width: 600px;
   margin: 0 auto 1.25rem;
+}
+
+ul {
+  padding: 0;
+}
+li {
+  @apply flex items-start gap-2.5 text-[0.9rem] font-light before:content-['✓'] before:text-h-accent before:font-bold before:shrink-0 before:mt-px;
 }

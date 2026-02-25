@@ -156,6 +156,8 @@ export interface Page {
   id: number;
   title: string;
   layout: (
+    | PageHeadingBlock
+    | TextImageBlock
     | HeroHomeBlock
     | LogoCloudBlock
     | CmsSectionBlock
@@ -188,11 +190,11 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeroHomeBlock".
+ * via the `definition` "PageHeadingBlock".
  */
-export interface HeroHomeBlock {
+export interface PageHeadingBlock {
   /**
-   * Use italic text for the styled second line (e.g. <em>fully in your hands</em>)
+   * Use italic text for the styled accent portion of the heading
    */
   heading?: {
     root: {
@@ -209,34 +211,63 @@ export interface HeroHomeBlock {
     };
     [k: string]: unknown;
   } | null;
+  /**
+   * Optional supporting sentence shown beneath the heading
+   */
   subtext?: string | null;
-  primaryButtonLabel?: string | null;
-  primaryButtonHref?: string | null;
-  secondaryButtonLabel?: string | null;
-  secondaryButtonHref?: string | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'heroHome';
+  blockType: 'pageHeading';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "LogoCloudBlock".
+ * via the `definition` "TextImageBlock".
  */
-export interface LogoCloudBlock {
-  label?: string | null;
-  logos?:
-    | {
-        image: number | Media;
-        /**
-         * Used as alt text for accessibility
-         */
-        alt: string;
-        id?: string | null;
-      }[]
-    | null;
+export interface TextImageBlock {
+  eyebrow?: string | null;
+  /**
+   * Use italic text for the styled accent portion of the heading
+   */
+  heading?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  body?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  buttonLabel?: string | null;
+  buttonHref?: string | null;
+  image: number | Media;
+  /**
+   * When checked, the image column appears on the left and text on the right
+   */
+  imageFirst?: boolean | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'logoCloud';
+  blockType: 'textImage';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -356,6 +387,58 @@ export interface FolderInterface {
   folderType?: 'media'[] | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroHomeBlock".
+ */
+export interface HeroHomeBlock {
+  /**
+   * Use italic text for the styled second line (e.g. <em>fully in your hands</em>)
+   */
+  heading?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  subtext?: string | null;
+  primaryButtonLabel?: string | null;
+  primaryButtonHref?: string | null;
+  secondaryButtonLabel?: string | null;
+  secondaryButtonHref?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'heroHome';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "LogoCloudBlock".
+ */
+export interface LogoCloudBlock {
+  label?: string | null;
+  logos?:
+    | {
+        image: number | Media;
+        /**
+         * Used as alt text for accessibility
+         */
+        alt: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'logoCloud';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1236,6 +1319,8 @@ export interface PagesSelect<T extends boolean = true> {
   layout?:
     | T
     | {
+        pageHeading?: T | PageHeadingBlockSelect<T>;
+        textImage?: T | TextImageBlockSelect<T>;
         heroHome?: T | HeroHomeBlockSelect<T>;
         logoCloud?: T | LogoCloudBlockSelect<T>;
         cmsSection?: T | CmsSectionBlockSelect<T>;
@@ -1261,6 +1346,31 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PageHeadingBlock_select".
+ */
+export interface PageHeadingBlockSelect<T extends boolean = true> {
+  heading?: T;
+  subtext?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextImageBlock_select".
+ */
+export interface TextImageBlockSelect<T extends boolean = true> {
+  eyebrow?: T;
+  heading?: T;
+  body?: T;
+  buttonLabel?: T;
+  buttonHref?: T;
+  image?: T;
+  imageFirst?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

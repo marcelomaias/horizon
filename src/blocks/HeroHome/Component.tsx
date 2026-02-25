@@ -4,6 +4,7 @@ import RichText from '@/components/RichText'
 
 import type { HeroHomeBlock as HeroHomeBlockProps } from '@/payload-types'
 import ScreenShotGeneric from '@/components/ScreenShotGeneric/Component'
+import PayloadAdminMockup from '@/components/ScreenshotHero/Component'
 
 export const HeroHomeBlock: React.FC<HeroHomeBlockProps & { id?: string }> = ({
   heading,
@@ -27,7 +28,7 @@ export const HeroHomeBlock: React.FC<HeroHomeBlockProps & { id?: string }> = ({
         {subtext && <p className="hero__sub">{subtext}</p>}
 
         {/* CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-18 animation-[fadeUp_0.55s_0.24s_ease_both]">
+        <div className="flex flex-wrap items-center justify-center gap-2.5 md:mb-18 animation-[fadeUp_0.55s_0.24s_ease_both]">
           {primaryButtonLabel && (
             <Link className="btn-primary btn-lg" href={primaryButtonHref || '/demo'}>
               {primaryButtonLabel}
@@ -41,7 +42,7 @@ export const HeroHomeBlock: React.FC<HeroHomeBlockProps & { id?: string }> = ({
         </div>
 
         {/* Admin UI Mockup — hardcoded, updated via code when UI changes */}
-        <ScreenShotGeneric />
+        <PayloadAdminMockup />
         {/* end .hero__screenshot-wrap */}
       </div>
     </section>
