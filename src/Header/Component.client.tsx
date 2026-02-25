@@ -39,14 +39,10 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
       {/* Nav links — managed via Payload Header global */}
       {navItems.length > 0 && (
-        <nav aria-label="Main navigation">
-          <ul className="flex items-center gap-7 list-none">
-            {navItems.map(({ link }, i) => (
-              <li key={i}>
-                <CMSLink className="site-header__nav-link" {...link} appearance="link" />
-              </li>
-            ))}
-          </ul>
+        <nav className="flex items-center gap-7" aria-label="Main navigation">
+          {navItems.map(({ link }, i) => (
+            <CMSLink key={i} className="site-header__nav-link" {...link} appearance="link" />
+          ))}
         </nav>
       )}
 
