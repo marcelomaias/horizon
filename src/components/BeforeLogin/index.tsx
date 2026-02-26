@@ -32,10 +32,10 @@ const BeforeLogin: React.FC = () => {
         <div style={{ marginBottom: '16px' }}>
           <strong>Demo credentials</strong>
           <div>
-            Email: <strong>demo@horizoncms.dev</strong>
+            Email: <strong>editor@horizoncontent.dev</strong>
           </div>
           <div>
-            Password: <strong>demo1234</strong>
+            Password: <strong>SxaYrQ2dNd8</strong>
           </div>
         </div>
 

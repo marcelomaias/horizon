@@ -101,9 +101,14 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
     pagination: false,
     overrideAccess: draft,
     where: {
-      slug: {
-        equals: slug,
-      },
+      and: [
+        {
+          slug: {
+            equals: slug,
+          },
+        },
+        ...(!draft ? [{ _status: { equals: 'published' } }] : []),
+      ],
     },
   })
 

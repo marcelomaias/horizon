@@ -178,6 +178,8 @@ export interface Page {
     description?: string | null;
   };
   publishedAt?: string | null;
+  createdBy?: (number | null) | User;
+  publishedBy?: (number | null) | User;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
@@ -673,6 +675,8 @@ export interface Category {
 export interface User {
   id: number;
   name?: string | null;
+  roles?: ('admin' | 'editor' | 'user')[] | null;
+  userPicture?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -1288,6 +1292,8 @@ export interface PagesSelect<T extends boolean = true> {
         description?: T;
       };
   publishedAt?: T;
+  createdBy?: T;
+  publishedBy?: T;
   generateSlug?: T;
   slug?: T;
   updatedAt?: T;
@@ -1630,6 +1636,8 @@ export interface CategoriesSelect<T extends boolean = true> {
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
+  roles?: T;
+  userPicture?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;

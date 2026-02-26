@@ -1,7 +1,8 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionConfig, FieldAccess } from 'payload'
 
-import { authenticated } from '../../access/authenticated'
-import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
+import admin from '@/access/admin'
+import editor from '@/access/editor'
+import { checkRole } from '@/access/checkRole'
 import { Archive } from '../../blocks/ArchiveBlock/config'
 import { CallToAction } from '../../blocks/CallToAction/config'
 import { Content } from '../../blocks/Content/config'
@@ -16,8 +17,11 @@ import { CtaBanner } from '@/blocks/CtaBanner/config'
 import { TextImage } from '@/blocks/TextImage/config'
 import { slugField } from 'payload'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
+import { setCreatedBy } from '@/hooks/setCreatedBy'
+import { setPublishedBy } from '@/hooks/setPublishedBy'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
+import type { User } from '@/payload-types'
 
 import {
   MetaDescriptionField,
@@ -26,18 +30,18 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
+import { anyone } from '@/access/anyone'
+
+const adminOnlyField: FieldAccess = ({ req: { user } }) => checkRole(['admin'], user as User)
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
   access: {
-    create: authenticated,
-    delete: authenticated,
-    read: authenticatedOrPublished,
-    update: authenticated,
+    create: editor,
+    delete: admin,
+    read: anyone,
+    update: editor,
   },
-  // This config controls what's populated by default when a page is referenced
-  // https://payloadcms.com/docs/queries/select#defaultpopulate-collection-config-property
-  // Type safe if the collection slug generic is passed to `CollectionConfig` - `CollectionConfig<'pages'>
   defaultPopulate: {
     title: true,
     slug: true,
@@ -111,13 +115,9 @@ export const Pages: CollectionConfig<'pages'> = {
             MetaImageField({
               relationTo: 'media',
             }),
-
             MetaDescriptionField({}),
             PreviewField({
-              // if the `generateUrl` function is configured
               hasGenerateFn: true,
-
-              // field paths to match the target field for data
               titlePath: 'meta.title',
               descriptionPath: 'meta.description',
             }),
@@ -132,20 +132,48 @@ export const Pages: CollectionConfig<'pages'> = {
         position: 'sidebar',
       },
     },
+    {
+      name: 'createdBy',
+      type: 'relationship',
+      relationTo: 'users',
+      admin: {
+        position: 'sidebar',
+        readOnly: true,
+        condition: (data) => Boolean(data?.createdBy),
+      },
+      access: {
+        read: adminOnlyField,
+        update: (() => false) as FieldAccess,
+      },
+    },
+    {
+      name: 'publishedBy',
+      type: 'relationship',
+      relationTo: 'users',
+      admin: {
+        position: 'sidebar',
+        readOnly: true,
+        condition: (data) => Boolean(data?.publishedBy),
+      },
+      access: {
+        read: adminOnlyField,
+        update: (() => false) as FieldAccess,
+      },
+    },
     slugField(),
   ],
   hooks: {
     afterChange: [revalidatePage],
-    beforeChange: [populatePublishedAt],
+    beforeChange: [populatePublishedAt, setCreatedBy, setPublishedBy],
     afterDelete: [revalidateDelete],
   },
   versions: {
     drafts: {
       autosave: {
-        interval: 100, // We set this interval for optimal live preview
+        interval: 5000, // 2 seconds instead of 100ms
       },
       schedulePublish: true,
     },
-    maxPerDoc: 50,
+    maxPerDoc: 20,
   },
 }
