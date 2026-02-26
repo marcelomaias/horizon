@@ -49,14 +49,6 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
       {/* Right rail */}
       <div className="flex items-center gap-3">
         <ThemeSelector />
-        {/* <div className="hidden md:flex items-center gap-3">
-          <Link className="btn-ghost" href="/demo">
-            Demo
-          </Link>
-          <Link className="btn-primary" href="/contact">
-            Get started
-          </Link>
-        </div> */}
       </div>
     </header>
   )
