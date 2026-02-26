@@ -2,7 +2,7 @@ import type { Access, AccessArgs, AccessResult } from 'payload'
 
 export const or =
   (...accessFns: Access[]): Access =>
-  async (args: AccessArgs<any>): Promise<AccessResult> => {
+  async (args: AccessArgs<unknown>): Promise<AccessResult> => {
     for (const fn of accessFns) {
       const result = await fn(args)
 

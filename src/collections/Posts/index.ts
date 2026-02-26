@@ -11,7 +11,6 @@ import {
 
 import admin from '@/access/admin'
 import editor from '@/access/editor'
-import authenticated from '@/access/authenticated'
 import { Banner } from '../../blocks/Banner/config'
 import { Code } from '../../blocks/Code/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
@@ -27,13 +26,14 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { slugField } from 'payload'
+import { anyone } from '@/access/anyone'
 
 export const Posts: CollectionConfig<'posts'> = {
   slug: 'posts',
   access: {
     create: editor,
     delete: admin,
-    read: authenticated,
+    read: anyone,
     update: editor,
   },
   defaultPopulate: {

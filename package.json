@@ -1,5 +1,5 @@
 {
-  "name": "Horizon",
+  "name": "horizon",
   "version": "1.0.0",
   "description": "Website for Horizon, a Payload CMS system.",
   "license": "MIT",
@@ -10,6 +10,7 @@
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
     "dev:new": "exec dotenv -e .env.prod -- pnpm dev",
+    "build:new": "exec dotenv -e .env.prod -- pnpm build",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "ii": "cross-env NODE_OPTIONS=--no-deprecation pnpm --ignore-workspace install",
