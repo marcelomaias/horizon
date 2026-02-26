@@ -1,0 +1,792 @@
+{
+  "exportedAt": "2026-02-25T20:37:04.457Z",
+  "globals": {
+    "header": {
+      "navItems": [
+        {
+          "id": "699c924849937b2daafb4954",
+          "link": {
+            "type": "custom",
+            "newTab": null,
+            "url": "#featuresGrid",
+            "label": "Features"
+          }
+        },
+        {
+          "id": "699c924849937b2daafb4955",
+          "link": {
+            "type": "custom",
+            "newTab": null,
+            "url": "#performance",
+            "label": "Performance"
+          }
+        },
+        {
+          "id": "699e012f06c95b3f865f0aa1",
+          "link": {
+            "type": "custom",
+            "newTab": null,
+            "url": "/admin",
+            "label": "Try it!"
+          }
+        }
+      ]
+    },
+    "footer": {
+      "navItems": [
+        {
+          "id": "699c924849937b2daafb4956",
+          "link": {
+            "type": "custom",
+            "newTab": null,
+            "url": "/admin",
+            "label": "Admin"
+          }
+        },
+        {
+          "id": "699c924849937b2daafb4957",
+          "link": {
+            "type": "custom",
+            "newTab": true,
+            "url": "https://github.com/marcelomaias/horizon",
+            "label": "Source Code"
+          }
+        },
+        {
+          "id": "699c924849937b2daafb4958",
+          "link": {
+            "type": "custom",
+            "newTab": true,
+            "url": "https://payloadcms.com/",
+            "label": "Payload"
+          }
+        }
+      ]
+    }
+  },
+  "collections": {
+    "media": [
+      {
+        "id": 11,
+        "alt": "Amsterdam Logo",
+        "caption": null,
+        "filename": "Amsterdam-black.svg",
+        "mimeType": "image/svg+xml"
+      },
+      {
+        "id": 12,
+        "alt": "Colorado",
+        "caption": null,
+        "filename": "colorado-black.svg",
+        "mimeType": "image/svg+xml"
+      },
+      {
+        "id": 13,
+        "alt": "Cloud",
+        "caption": null,
+        "filename": "cloud-black.svg",
+        "mimeType": "image/svg+xml"
+      },
+      {
+        "id": 14,
+        "alt": "Monochrome",
+        "caption": null,
+        "filename": "monochrome-black.svg",
+        "mimeType": "image/svg+xml"
+      },
+      {
+        "id": 15,
+        "alt": "Swiss",
+        "caption": null,
+        "filename": "Swiss-black.svg",
+        "mimeType": "image/svg+xml"
+      },
+      {
+        "id": 16,
+        "alt": "Theo",
+        "caption": null,
+        "filename": "theo-black.svg",
+        "mimeType": "image/svg+xml"
+      },
+      {
+        "id": 17,
+        "alt": "Build icon",
+        "caption": null,
+        "filename": "ico-brick.svg",
+        "mimeType": "image/svg+xml"
+      },
+      {
+        "id": 18,
+        "alt": "Eye icon",
+        "caption": null,
+        "filename": "ico-eye.svg",
+        "mimeType": "image/svg+xml"
+      },
+      {
+        "id": 19,
+        "alt": "Chain icon",
+        "caption": null,
+        "filename": "ico-link.svg",
+        "mimeType": "image/svg+xml"
+      },
+      {
+        "id": 22,
+        "alt": "Payload admin screenshot",
+        "caption": null,
+        "filename": "screenhot-payload-admin.png",
+        "mimeType": "image/png"
+      }
+    ],
+    "pages": [
+      {
+        "title": "Home",
+        "slug": "home",
+        "_status": "published",
+        "publishedAt": "2026-02-23T19:17:56.614Z",
+        "layout": [
+          {
+            "id": "699cf366888e8c29aeae64c3",
+            "heading": {
+              "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "tag": "h1",
+                    "type": "heading",
+                    "format": "center",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Your marketing site,",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      },
+                      {
+                        "type": "linebreak",
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": "fully in your hands",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 2,
+                        "version": 1
+                      }
+                    ],
+                    "direction": null
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [],
+                    "direction": null,
+                    "textStyle": "",
+                    "textFormat": 0
+                  }
+                ],
+                "direction": null
+              }
+            },
+            "subtext": "Horizon is a headless content platform that lets marketing teams create, edit, and publish pages — without waiting on developers.",
+            "primaryButtonLabel": "Start building free",
+            "primaryButtonHref": "/admin",
+            "secondaryButtonLabel": "Explore the demo →",
+            "secondaryButtonHref": "/admin",
+            "blockName": "Hero block",
+            "blockType": "heroHome"
+          },
+          {
+            "id": "699d1b0d0ee5fe9b01b99d87",
+            "label": "Trusted by modern product teams",
+            "blockName": "Logos block",
+            "logos": [
+              {
+                "id": "699d1b130ee5fe9b01b99d89",
+                "image": 11,
+                "alt": "Amsterdam"
+              },
+              {
+                "id": "699d1c830ee5fe9b01b99d8b",
+                "image": 12,
+                "alt": "Colorado"
+              },
+              {
+                "id": "699d1c9a0ee5fe9b01b99d8d",
+                "image": 13,
+                "alt": "Cloud"
+              },
+              {
+                "id": "699d1cd70ee5fe9b01b99d8f",
+                "image": 14,
+                "alt": "Monochrome"
+              },
+              {
+                "id": "699d1cea0ee5fe9b01b99d91",
+                "image": 15,
+                "alt": "Swiss"
+              },
+              {
+                "id": "699d1cf90ee5fe9b01b99d93",
+                "image": 16,
+                "alt": "Theo"
+              }
+            ],
+            "blockType": "logoCloud"
+          },
+          {
+            "id": "699e9ad68087b3ff3248d510",
+            "eyebrow": "Content Management",
+            "heading": {
+              "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "tag": "h2",
+                    "type": "heading",
+                    "format": "start",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "A CMS built for",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      },
+                      {
+                        "type": "linebreak",
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": "marketing teams",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": null
+                  }
+                ],
+                "direction": null
+              }
+            },
+            "body": {
+              "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "format": "start",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Editors compose pages by assembling ",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": "pre-built blocks",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 1,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": " — no free-form drag and drop, no broken layouts. The design system stays intact, always.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": null,
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "start",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Developers define the blocks. ",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": "Marketing teams use them",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 1,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": ". Clean separation, zero chaos.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": null,
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "tag": "ul",
+                    "type": "list",
+                    "start": 1,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "type": "listitem",
+                        "value": 1,
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [
+                          {
+                            "mode": "normal",
+                            "text": "Reusable content blocks with enforced ",
+                            "type": "text",
+                            "style": "",
+                            "detail": 0,
+                            "format": 0,
+                            "version": 1
+                          },
+                          {
+                            "mode": "normal",
+                            "text": "design constraints",
+                            "type": "text",
+                            "style": "",
+                            "detail": 0,
+                            "format": 1,
+                            "version": 1
+                          }
+                        ],
+                        "direction": null
+                      },
+                      {
+                        "type": "listitem",
+                        "value": 2,
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [
+                          {
+                            "mode": "normal",
+                            "text": "Draft & live preview",
+                            "type": "text",
+                            "style": "",
+                            "detail": 0,
+                            "format": 1,
+                            "version": 1
+                          },
+                          {
+                            "mode": "normal",
+                            "text": " before publishing anything",
+                            "type": "text",
+                            "style": "",
+                            "detail": 0,
+                            "format": 0,
+                            "version": 1
+                          }
+                        ],
+                        "direction": null,
+                        "textFormat": 1
+                      },
+                      {
+                        "type": "listitem",
+                        "value": 3,
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [
+                          {
+                            "mode": "normal",
+                            "text": "Real-time collaboration across your team",
+                            "type": "text",
+                            "style": "",
+                            "detail": 0,
+                            "format": 0,
+                            "version": 1
+                          }
+                        ],
+                        "direction": null
+                      },
+                      {
+                        "type": "listitem",
+                        "value": 4,
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [
+                          {
+                            "mode": "normal",
+                            "text": "Structured ",
+                            "type": "text",
+                            "style": "",
+                            "detail": 0,
+                            "format": 0,
+                            "version": 1
+                          },
+                          {
+                            "mode": "normal",
+                            "text": "SEO fields",
+                            "type": "text",
+                            "style": "",
+                            "detail": 0,
+                            "format": 1,
+                            "version": 1
+                          },
+                          {
+                            "mode": "normal",
+                            "text": " on every page",
+                            "type": "text",
+                            "style": "",
+                            "detail": 0,
+                            "format": 0,
+                            "version": 1
+                          }
+                        ],
+                        "direction": null
+                      }
+                    ],
+                    "listType": "bullet",
+                    "direction": null
+                  }
+                ],
+                "direction": null
+              }
+            },
+            "buttonLabel": "See it in action →",
+            "buttonHref": "/admin",
+            "image": 22,
+            "imageFirst": false,
+            "blockName": "CMS Area",
+            "blockType": "textImage"
+          },
+          {
+            "id": "699dd3c475561cb2351c4775",
+            "eyebrow": "Features",
+            "heading": {
+              "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "tag": "h2",
+                    "type": "heading",
+                    "format": "start",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Built for the way",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      },
+                      {
+                        "type": "linebreak",
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": "teams actually work",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": null
+                  }
+                ],
+                "direction": null
+              }
+            },
+            "subtext": "Three things Horizon does that others don't.",
+            "blockName": "Features block",
+            "features": [
+              {
+                "id": "699dd49ef537af2a959b51af",
+                "icon": 17,
+                "title": "Block-based pages",
+                "description": "Compose pages from pre-defined blocks. Marketing moves fast, the design system stays consistent. No developer needed for every change."
+              },
+              {
+                "id": "699dd51ef537af2a959b51b1",
+                "icon": 18,
+                "title": "Draft & live preview",
+                "description": "Review every change in real time before it goes public. Share preview URLs with stakeholders for instant sign-off without publishing."
+              },
+              {
+                "id": "699dd542f537af2a959b51b3",
+                "icon": 19,
+                "title": "Headless & flexible",
+                "description": "Structured content delivered via API. Plug into any front-end stack. Full developer control with a clean content model underneath."
+              }
+            ],
+            "blockType": "featuresGrid"
+          },
+          {
+            "id": "699dd9f8f537af2a959b51b5",
+            "eyebrow": "Performance",
+            "heading": {
+              "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "tag": "h2",
+                    "type": "heading",
+                    "format": "start",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Fast out of the box.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      },
+                      {
+                        "type": "linebreak",
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": "No configuration needed.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 2,
+                        "version": 1
+                      }
+                    ],
+                    "direction": null
+                  }
+                ],
+                "direction": null
+              }
+            },
+            "body": {
+              "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "format": "start",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Horizon",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 1,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": " is built on Next.js server rendering. Pages are generated at the edge, assets are optimized automatically, and Core Web Vitals ",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": "green by default",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 1,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": ".",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": null,
+                    "textStyle": "",
+                    "textFormat": 1
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "start",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Your visitors get ",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": "fast pages",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 1,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": ". Your SEO gets the scores. You get none of the headaches.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": null,
+                    "textStyle": "",
+                    "textFormat": 0
+                  }
+                ],
+                "direction": null
+              }
+            },
+            "buttonLabel": "Try demo →",
+            "buttonHref": "/admin",
+            "blockName": "Performance block",
+            "blockType": "performance"
+          },
+          {
+            "id": "699ddf2bf537af2a959b51b7",
+            "heading": {
+              "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "tag": "h2",
+                    "type": "heading",
+                    "format": "center",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Ready to take control",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      },
+                      {
+                        "type": "linebreak",
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": "of your website?",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": null
+                  }
+                ],
+                "direction": null
+              }
+            },
+            "subtext": "Ship faster. Your content, your structure, your rules.",
+            "primaryButtonLabel": "Start building free",
+            "primaryButtonHref": "/admin",
+            "secondaryButtonLabel": "Explore the demo →",
+            "secondaryButtonHref": "/admin",
+            "blockName": null,
+            "blockType": "ctaBanner"
+          }
+        ],
+        "meta": {
+          "title": "Horizon - Content platform that marketing teams love",
+          "image": 22,
+          "description": "Horizon is a headless content platform that lets marketing teams create, edit, and publish pages — without waiting on developers."
+        }
+      }
+    ]
+  }
+}
