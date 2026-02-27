@@ -1,10 +1,10 @@
 # Horizon
 
-A fictional headless content platform for marketing teams — built as a portfolio piece to showcase what a production-quality SaaS marketing site looks like when Payload CMS 3 and Next.js 15 are used together.
+A headless content platform built for marketing teams — powered by Payload CMS 3 and Next.js 15.
 
 ![Horizon homepage](https://raw.githubusercontent.com/marcelomaias/horizon/main/public/screenshots/Home-Hero.png)
 
-The concept is a Contentful/Sanity competitor called Horizon. The site itself is the product demo — every section, block, and content model is managed through Payload, making it a living example of the platform it's pretending to sell.
+Horizon gives marketing teams full control over their content without sacrificing developer experience. Every page, block, and content model is managed through Payload CMS, keeping the stack lean and the workflow fast.
 
 ---
 
